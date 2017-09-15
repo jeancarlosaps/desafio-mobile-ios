@@ -19,6 +19,6 @@ class RepositorieOwner: Mappable{
     
     func mapping(map: Map) {
         login <- map["login"]
-        avatarURL <- map["avatarURL"]
+        avatarURL <- map["avatar_url"]
     }
 }

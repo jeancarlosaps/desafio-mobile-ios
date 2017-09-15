@@ -6,47 +6,73 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PullRequestCell" rowHeight="158" id="L5J-rv-OsN">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PullRequestCell" rowHeight="158" id="L5J-rv-OsN" customClass="PullRequestsTableViewCell" customModule="desafio_mobile_ios" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="400" height="160"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L5J-rv-OsN" id="APL-Z7-3R3">
                 <rect key="frame" x="0.0" y="0.0" width="400" height="160"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Título do pull request" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7z-23-fnV">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título do pull request" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7z-23-fnV">
                         <rect key="frame" x="8" y="8" width="384" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="lzZ-9I-bEM"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIj-0x-5VH">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIj-0x-5VH">
                         <rect key="frame" x="8" y="37" width="384" height="41"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lm0-zU-b0g">
-                        <rect key="frame" x="8" y="86" width="60" height="60"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lm0-zU-b0g">
+                        <rect key="frame" x="8" y="85" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="Wda-qC-3ch"/>
+                            <constraint firstAttribute="width" constant="60" id="grW-aX-WhF"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEU-DQ-4cJ">
-                        <rect key="frame" x="76" y="106" width="316" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEU-DQ-4cJ">
+                        <rect key="frame" x="76" y="105" width="316" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="0oA-Oi-YiJ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="O7z-23-fnV" firstAttribute="top" secondItem="APL-Z7-3R3" secondAttribute="topMargin" id="4Yl-qV-yon"/>
+                    <constraint firstItem="gIj-0x-5VH" firstAttribute="trailing" secondItem="APL-Z7-3R3" secondAttribute="trailingMargin" id="6Ue-KZ-eLE"/>
+                    <constraint firstItem="O7z-23-fnV" firstAttribute="trailing" secondItem="APL-Z7-3R3" secondAttribute="trailingMargin" id="6Z6-0E-qqD"/>
+                    <constraint firstItem="gIj-0x-5VH" firstAttribute="top" secondItem="O7z-23-fnV" secondAttribute="bottom" constant="8" id="VBJ-A2-azc"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="lm0-zU-b0g" secondAttribute="bottom" constant="6" id="WfH-uT-JxT"/>
+                    <constraint firstItem="bEU-DQ-4cJ" firstAttribute="centerY" secondItem="lm0-zU-b0g" secondAttribute="centerY" id="YTh-HN-lIE"/>
+                    <constraint firstItem="lm0-zU-b0g" firstAttribute="leading" secondItem="APL-Z7-3R3" secondAttribute="leadingMargin" id="Z2S-xj-9sJ"/>
+                    <constraint firstItem="bEU-DQ-4cJ" firstAttribute="leading" secondItem="lm0-zU-b0g" secondAttribute="trailing" constant="8" id="d5a-70-41B"/>
+                    <constraint firstItem="bEU-DQ-4cJ" firstAttribute="trailing" secondItem="APL-Z7-3R3" secondAttribute="trailingMargin" id="ey5-cm-UOa"/>
+                    <constraint firstItem="O7z-23-fnV" firstAttribute="leading" secondItem="APL-Z7-3R3" secondAttribute="leadingMargin" id="gAk-Tw-Bjg"/>
+                    <constraint firstItem="gIj-0x-5VH" firstAttribute="leading" secondItem="APL-Z7-3R3" secondAttribute="leadingMargin" id="nvZ-nU-leQ"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="209" y="-226"/>
+            <connections>
+                <outlet property="imgAvatarPullRequestCreator" destination="lm0-zU-b0g" id="JHJ-gG-ZEH"/>
+                <outlet property="lblPullRequestBody" destination="gIj-0x-5VH" id="zNm-lS-BoF"/>
+                <outlet property="lblPullRequestCreator" destination="bEU-DQ-4cJ" id="ZUm-hV-qbK"/>
+                <outlet property="lblPullRequestTitle" destination="O7z-23-fnV" id="twe-fe-igj"/>
+            </connections>
+            <point key="canvasLocation" x="1744" y="-210"/>
         </tableViewCell>
     </objects>
 </document>

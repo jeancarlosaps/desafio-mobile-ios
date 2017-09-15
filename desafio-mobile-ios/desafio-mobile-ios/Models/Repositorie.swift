@@ -14,7 +14,7 @@ class Repositorie: Mappable{
     var nameRepositories: String? = ""
     var full_name: String? = ""
     var description: String? = ""
-    var owner: String? = ""
+    var owner:RepositorieOwner? = nil
     
     required init?(map: Map) {
         

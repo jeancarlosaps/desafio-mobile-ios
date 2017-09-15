@@ -12,17 +12,30 @@ import SDWebImage
 class PullRequestsTableViewCell: UITableViewCell {
     
     //MARK: IBOutlets
+    @IBOutlet weak var lblPullRequestTitle: UILabel!
+    @IBOutlet weak var lblPullRequestBody: UILabel!
+    @IBOutlet weak var lblPullRequestCreator: UILabel!
+    @IBOutlet weak var imgAvatarPullRequestCreator: UIImageView!
+    @IBOutlet weak var imgAvatarPullRequestCreatorHeightConstraint: NSLayoutConstraint!
     
-
+    //MARK: Método para customização de elementos da célula chamada no lifecycle da tableview
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        //Custom
+        imgAvatarPullRequestCreator.layer.cornerRadius = imgAvatarPullRequestCreatorHeightConstraint.constant / 2
+        imgAvatarPullRequestCreator.layer.masksToBounds = true
+        imgAvatarPullRequestCreator.layer.borderColor = UIColor.gray.cgColor
+        imgAvatarPullRequestCreator.layer.borderWidth = 1.0
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func initWithPullRequest(_ pullRequest: PullRequests) {
+        lblPullRequestTitle.text = pullRequest.title
+        lblPullRequestBody.text = pullRequest.body
+        lblPullRequestCreator.text = pullRequest.user?.login
+        
+        let imgAvatarPullRequestCreatorURL = URL(string: (pullRequest.user?.avatarURL)!)
+        imgAvatarPullRequestCreator.sd_setImage(with: imgAvatarPullRequestCreatorURL)
+        
     }
 
 }

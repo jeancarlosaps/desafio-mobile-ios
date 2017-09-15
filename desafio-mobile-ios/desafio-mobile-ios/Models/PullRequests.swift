@@ -13,7 +13,7 @@ class PullRequests: Mappable{
     var title: String?
     var body: String?
     var url: String?
-    var user: String?
+    var user: RepositorieOwner?
     
     required init?(map: Map) {
         
