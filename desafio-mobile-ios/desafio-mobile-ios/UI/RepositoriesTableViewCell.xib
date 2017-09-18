@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,43 +19,70 @@
                 <rect key="frame" x="0.0" y="0.0" width="400" height="160"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Repositorie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyg-af-Lh7">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repositorie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyg-af-Lh7">
                         <rect key="frame" x="8" y="8" width="318" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="ZtP-Zn-Hq6"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMR-dN-vwS">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMR-dN-vwS">
                         <rect key="frame" x="8" y="36" width="300" height="41"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="goh-OZ-LAb">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="goh-OZ-LAb">
                         <rect key="frame" x="334" y="8" width="60" height="60"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="ebm-Hk-mdv"/>
+                            <constraint firstAttribute="height" constant="60" id="vvk-Pw-NQV"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGV-Ao-0sU">
-                        <rect key="frame" x="297" y="76" width="105" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGV-Ao-0sU">
+                        <rect key="frame" x="316" y="76" width="76" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Jjo-DV-Pq6"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome Sobrenome" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eml-nd-GEF">
-                        <rect key="frame" x="190" y="96" width="224" height="23"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Sobrenome" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eml-nd-GEF">
+                        <rect key="frame" x="254" y="98" width="138.5" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="ZAt-LH-dAH"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="goh-OZ-LAb" firstAttribute="leading" secondItem="WMR-dN-vwS" secondAttribute="trailing" constant="26" id="0Ju-he-K6q"/>
+                    <constraint firstItem="goh-OZ-LAb" firstAttribute="leading" secondItem="Eyg-af-Lh7" secondAttribute="trailing" constant="8" id="221-M2-F8S"/>
+                    <constraint firstAttribute="trailing" secondItem="eml-nd-GEF" secondAttribute="trailing" constant="7.5" id="EKQ-vG-thf"/>
+                    <constraint firstItem="eml-nd-GEF" firstAttribute="top" secondItem="WMR-dN-vwS" secondAttribute="bottom" constant="21" id="FQr-Dr-rQ4"/>
+                    <constraint firstItem="Eyg-af-Lh7" firstAttribute="leading" secondItem="2Ih-fe-HIx" secondAttribute="leadingMargin" id="VJh-nb-TRg"/>
+                    <constraint firstItem="BGV-Ao-0sU" firstAttribute="trailing" secondItem="2Ih-fe-HIx" secondAttribute="trailingMargin" id="Z5F-k7-EYK"/>
+                    <constraint firstItem="goh-OZ-LAb" firstAttribute="top" secondItem="2Ih-fe-HIx" secondAttribute="top" constant="8" id="bjW-9m-sUp"/>
+                    <constraint firstItem="BGV-Ao-0sU" firstAttribute="top" secondItem="goh-OZ-LAb" secondAttribute="bottom" constant="8" id="cGy-Br-bX5"/>
+                    <constraint firstAttribute="trailing" secondItem="goh-OZ-LAb" secondAttribute="trailing" constant="6" id="d2T-qj-dkp"/>
+                    <constraint firstItem="Eyg-af-Lh7" firstAttribute="top" secondItem="2Ih-fe-HIx" secondAttribute="topMargin" id="en4-7T-BMZ"/>
+                    <constraint firstItem="WMR-dN-vwS" firstAttribute="leading" secondItem="2Ih-fe-HIx" secondAttribute="leadingMargin" id="gMn-5u-Bbb"/>
+                    <constraint firstItem="Eyg-af-Lh7" firstAttribute="top" secondItem="2Ih-fe-HIx" secondAttribute="topMargin" id="ggm-xd-aOr"/>
+                    <constraint firstItem="Eyg-af-Lh7" firstAttribute="leading" secondItem="2Ih-fe-HIx" secondAttribute="leadingMargin" id="hIj-z8-zow"/>
+                    <constraint firstItem="eml-nd-GEF" firstAttribute="top" secondItem="BGV-Ao-0sU" secondAttribute="bottom" constant="1" id="iIp-1w-SSR"/>
+                    <constraint firstItem="WMR-dN-vwS" firstAttribute="top" secondItem="Eyg-af-Lh7" secondAttribute="bottom" constant="7" id="sm5-h9-dsq"/>
+                    <constraint firstItem="goh-OZ-LAb" firstAttribute="leading" secondItem="Eyg-af-Lh7" secondAttribute="trailing" constant="8" id="xoR-8F-MwO"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="imgAvatar" destination="goh-OZ-LAb" id="0X3-N4-Nwl"/>
+                <outlet property="imgAvatarHeightConstraint" destination="ebm-Hk-mdv" id="cmu-WE-QTs"/>
                 <outlet property="lblDescription" destination="WMR-dN-vwS" id="Qq1-ZV-wlJ"/>
                 <outlet property="lblNameSurname" destination="eml-nd-GEF" id="uJl-Ri-t9E"/>
                 <outlet property="lblRepositorieName" destination="Eyg-af-Lh7" id="0a1-d4-XJo"/>

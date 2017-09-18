@@ -13,7 +13,7 @@ import ObjectMapper
 
 class API{
     
-    func getRepositoriesAPI(_ page:Int, completion: @escaping ([Repositorie]) -> Void) {
+    static func getRepositoriesAPI(_ page:Int, completion: @escaping ([Repositorie]) -> Void) {
         let url : String = String(format: "https://api.github.com/search/repositories?q=language:Java&sort=stars&page=%i", page)
         
         Alamofire.request(url).validate().responseObject { (response : DataResponse<Repositories>) in
@@ -31,7 +31,7 @@ class API{
         }
     }
     
-    func getPullRequests(_ pullRequestCreator:String, pullRequestRepository:String, completion: @escaping ([PullRequests]) -> Void) {
+    static func getPullRequests(_ pullRequestCreator:String, pullRequestRepository:String, completion: @escaping ([PullRequests]) -> Void) {
         
         let url:String = "https://api.github.com/repos/\(pullRequestCreator)/\(pullRequestRepository)/pulls"
         

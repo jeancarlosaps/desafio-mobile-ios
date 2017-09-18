@@ -68,6 +68,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="imgAvatarPullRequestCreator" destination="lm0-zU-b0g" id="JHJ-gG-ZEH"/>
+                <outlet property="imgAvatarPullRequestCreatorHeightConstraint" destination="Wda-qC-3ch" id="VXG-Ka-cK2"/>
                 <outlet property="lblPullRequestBody" destination="gIj-0x-5VH" id="zNm-lS-BoF"/>
                 <outlet property="lblPullRequestCreator" destination="bEU-DQ-4cJ" id="ZUm-hV-qbK"/>
                 <outlet property="lblPullRequestTitle" destination="O7z-23-fnV" id="twe-fe-igj"/>

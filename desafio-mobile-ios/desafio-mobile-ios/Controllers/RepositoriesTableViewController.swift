@@ -7,89 +7,119 @@
 //
 
 import UIKit
+import ICSPullToRefresh
+import PKHUD
 
 class RepositoriesTableViewController: UITableViewController {
+    
+    //MARK: Variáveis de controle
+    var repositories = [Repositorie]()
+    var page:Int = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        navigationItem.title = "Github Java"
+        
+        // Configurar Pull To Refresh e o Infinite Scrolling
+        addPullToRefresh()
+        addInfiniteScrolling()
+        configureTableView()
+        loadRepositories(true)
+    }
+    
+    func addPullToRefresh() {
+        tableView.addPullToRefreshHandler {
+            self.page = 1
+            
+            self.repositories.removeAll()
+            self.loadRepositories(false)
+        }
+    }
+    
+    func addInfiniteScrolling() {
+        tableView.addInfiniteScrollingWithHandler {
+            self.page += 1
+            self.loadRepositories(false)
+        }
+    }
+    
+    func configureTableView(){
+        tableView.register(UINib(nibName: "RepositoriesTableViewCell", bundle: nil), forCellReuseIdentifier: "RepositoriesCell")
+    }
+    
+    func loadRepositories(_ showProgress : Bool) {
+        // Mostrar PKHUD
+        if showProgress {
+            HUD.show(.progress)
+        }
+        
+        API.getRepositoriesAPI(page) { response in
+            // Esconder PKHUD
+            if showProgress {
+                HUD.hide(animated: true)
+            }
+            
+            self.repositories = response
+            
+            if self.repositories.count > 0 {
+                // Retornou alguma coisa
+                self.tableView.reloadData()
+            } else {
+                // Array vazio
+                let alertArrayEmpty: UIAlertController = UIAlertController(title: "Repositório Vazio", message: "Não foi encontrado nenhum repositório.", preferredStyle: UIAlertControllerStyle.alert)
+                let actionOk: UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (acao) in
+                
+                })
+                let actionCancel: UIAlertAction = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.cancel, handler: { (acao) in
+                    
+                })
+                
+                alertArrayEmpty.addAction(actionOk)
+                alertArrayEmpty.addAction(actionCancel)
+                
+                self.present(alertArrayEmpty, animated: true) { () -> Void in
+                    
+                    print("Foi")
+                    
+                }
+            }
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+    ///MARK: Métodos de UITableViewDataSource e UITableViewDelegate
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return repositories.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell: RepositoiresTableViewCell = tableView.dequeueReusableCell(withIdentifier: "RepositoriesCell", for: indexPath) as! RepositoiresTableViewCell
+        let repositorie = repositories[indexPath.row] as Repositorie
+        
+        cell.initWithRepositorie(repositorie)
+        
+        self.tableView.pullToRefreshView?.stopAnimating()
+        self.tableView.infiniteScrollingView?.stopAnimating()
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repositorie = repositories[indexPath.row] as Repositorie
+        let owner = repositorie.owner
+        let login = owner?.login
+        let repositorieName = repositorie.nameRepositories
+        
+        let pull = PullRequestTableViewController()
+        pull.login = login
+        pull.repositorieName = repositorieName
+        self.navigationController?.pushViewController(pull, animated: true)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -22,7 +22,7 @@ class PullRequests: Mappable{
     func mapping(map: Map) {
         title <- map["title"]
         body <- map["body"]
-        url <- map["url"]
+        url <- map["html_url"]
         user <- map["user"]
     }
 }

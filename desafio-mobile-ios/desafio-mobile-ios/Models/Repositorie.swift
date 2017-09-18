@@ -22,7 +22,7 @@ class Repositorie: Mappable{
     
     func mapping(map: Map) {
         id <- map["id"]
-        nameRepositories <- map["nameRepositories"]
+        nameRepositories <- map["name"]
         full_name <- map["full_name"]
         description <- map["description"]
         owner <- map["owner"]
